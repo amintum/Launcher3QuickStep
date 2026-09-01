@@ -1,0 +1,5 @@
+build/
+.gradle/
+*.idsig
+*.log
+.DS_Store
