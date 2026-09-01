@@ -13,6 +13,7 @@ A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigati
 * ⚡ **Pre-Bound Cyber Clock HUD Integration**:
   * Configured across all grid workspace profiles (`5x5`, `4x5`, `4x4`, `6x5`) to automatically bind and place the **Cyber Clock HUD Widget** across the top row of **Page 0** out of the box on first boot.
 * 🏃 **Fluid QuickStep Gestures**: High-performance gesture navigation with smooth app-switching transitions.
+* **Double Tap to Sleep Enabled**
 * 📱 **Universal Android Compatibility**: Built for modern Android (Android 14, 15, and 16).
 
 ---
