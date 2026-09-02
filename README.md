@@ -10,7 +10,6 @@ A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigati
 ## ⚡ Features & Enhancements
 * 🌌 **Translucent Glass App Drawer & Recents**: Sleek smoked glass backdrop for the all-apps drawer and recent apps task overview.
 * 🧹 **Clean, Unobstructed UI**: Eliminated the bottom drag handle / pill bar from the home screen for a true edge-to-edge viewing experience.
-* ⚡ **Pre-Bound Cyber Clock HUD Integration**:
   * Configured across all grid workspace profiles (`5x5`, `4x5`, `4x4`, `6x5`) to automatically bind and place the **Cyber Clock HUD Widget** across the top row of **Page 0** out of the box on first boot.
 * 🏃 **Fluid QuickStep Gestures**: High-performance gesture navigation with smooth app-switching transitions.
 * **Double Tap to Sleep Enabled**
@@ -55,10 +54,6 @@ To bake `Launcher3QuickStep` into your Android ROM or GSI system image:
    ```text
    /system/system_ext/etc/permissions/com.android.launcher3.xml
    ```
-3. **Paired Cyber Clock HUD Widget**:
-   For the default home screen clock widget to bind on first boot, ensure [`CyberClockHudWidget.apk`](https://github.com/amintum/CyberClockHudWidget) is placed in `/system/priv-app/CyberClockHudWidget/`.
-
----
 
 ## 🛠️ Building from Source
 This repository contains complete decompiled source files (resources, smali, assets). Build and sign using the included script:
