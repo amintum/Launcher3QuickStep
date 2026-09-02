@@ -18,6 +18,19 @@ A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigati
 
 ---
 
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/400341af-9908-4d6b-a37a-dcb1d8c284b4" width="250" /><br>
+      <b>Home Screen</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/631e41ec-6a71-49a0-8ba0-79375cff57ba" width="250" /><br>
+      <b>App Drawer/Launcher</b>
+    </td>
+  </tr>
+</table>
+
 ## 📥 Installation & ROM Integration
 
 ### 🔹 Option 1: Standalone Sideload / Overlay / Replacement
