@@ -3,7 +3,7 @@
 [![Android 10+](https://img.shields.io/badge/Android-10%2B%20%7C%2014%20%7C%2015%20%7C%2016-00E5FF?style=for-the-badge&logo=android)](https://github.com/amintum)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0%20%2B%20Attribution-blue?style=for-the-badge)](LICENSE)
 
-A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigation** built for speed, transparency, and seamless integration with the **Cyber Clock HUD Widget**.
+A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigation** built for speed, transparency..
 
 ---
 
