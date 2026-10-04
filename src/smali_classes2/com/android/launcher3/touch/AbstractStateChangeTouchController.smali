@@ -233,7 +233,7 @@
 .end method
 
 .method public getShiftRange()F
-    .locals 0
+    .locals 2
 
     .line 153
     iget-object p0, p0, Lcom/android/launcher3/touch/AbstractStateChangeTouchController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -244,9 +244,15 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/AllAppsTransitionController;->getShiftRange()F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    # ponytail: 0.65x drag range - drawer opens with ~2/3 of the finger travel (sensitivity)
+
+    const v1, 0x3f266666    # 0.65f
+
+    mul-float/2addr v0, v1
+
+    return v0
 .end method
 
 .method public final getSwipeDirection()I

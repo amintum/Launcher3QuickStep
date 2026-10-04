@@ -2182,22 +2182,8 @@
 .method public isAllAppsBackgroundBlurEnabled()Z
     .locals 0
 
-    .line 507
-    iget-object p0, p0, Lcom/android/launcher3/uioverrides/QuickstepLauncher;->mDepthController:Lcom/android/launcher3/statehandlers/DepthController;
+    # ponytail: live drawer blur disabled - swipe frame spikes were 2.4x the 60Hz budget
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/quickstep/util/BaseDepthController;->isCrossWindowBlursEnabled()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
     const/4 p0, 0x0
 
     return p0
