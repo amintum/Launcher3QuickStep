@@ -5310,7 +5310,6 @@
     aput-boolean p1, p2, v2
 
     .line 5919
-    invoke-virtual {p0, p3, p3}, Landroid/view/ViewGroup;->performHapticFeedback(II)Z
 
     .line 5922
     iget-object p0, p0, Lcom/android/quickstep/views/RecentsView;->mRecentsAnimationController:Lcom/android/quickstep/RecentsAnimationController;

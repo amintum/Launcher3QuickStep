@@ -357,7 +357,6 @@
     const/4 p1, 0x1
 
     .line 969
-    invoke-virtual {p0, p1, p1}, Landroid/widget/ImageView;->performHapticFeedback(II)Z
 
     :cond_0
     const/4 p0, 0x0
@@ -3100,7 +3099,6 @@
     invoke-virtual {p3, v4, v4, v3, p6}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 1014
-    invoke-virtual {p4, v2, v2}, Landroid/view/View;->performHapticFeedback(II)Z
 
     :cond_0
     const/4 p6, 0x3

@@ -435,7 +435,6 @@
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;->updateTime()V
 
     .line 235
-    invoke-virtual {p0, v3, v2}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;->performHapticFeedback(II)V
 
     return-void
 .end method
@@ -561,7 +560,6 @@
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;->updateTime()V
 
     .line 142
-    invoke-virtual {p0, v0, p2}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;->performHapticFeedback(II)V
 
     :cond_3
     :goto_1
@@ -605,7 +603,6 @@
 
     const/4 p1, 0x4
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->performHapticFeedback(I)Z
 
     return-void
 .end method

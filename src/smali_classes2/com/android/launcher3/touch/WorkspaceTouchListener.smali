@@ -172,7 +172,6 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1}, Landroid/view/ViewGroup;->performHapticFeedback(II)Z
 
     .line 215
     iget-object v0, p0, Lcom/android/launcher3/touch/WorkspaceTouchListener;->mLauncher:Lcom/android/launcher3/Launcher;

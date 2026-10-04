@@ -774,7 +774,6 @@
     invoke-virtual {p0, v3}, Lcom/android/launcher3/taskbar/TaskbarNavButtonController;->notifyA11yClick(Z)V
 
     .line 208
-    invoke-virtual {p2, v1, v3}, Landroid/view/View;->performHapticFeedback(II)Z
 
     return v3
 
@@ -788,7 +787,6 @@
     invoke-direct {p0}, Lcom/android/launcher3/taskbar/TaskbarNavButtonController;->onImeSwitcherLongPress()V
 
     .line 228
-    invoke-virtual {p2, v1, v3}, Landroid/view/View;->performHapticFeedback(II)Z
 
     return v3
 
@@ -806,7 +804,6 @@
     if-eqz p0, :cond_5
 
     .line 221
-    invoke-virtual {p2, v1, v3}, Landroid/view/View;->performHapticFeedback(II)Z
 
     :cond_5
     return v3
@@ -821,7 +818,6 @@
     invoke-virtual {p0, p2}, Lcom/android/launcher3/taskbar/TaskbarNavButtonController;->onLongPressHome(Landroid/view/View;)V
 
     .line 202
-    invoke-virtual {p2, v1, v3}, Landroid/view/View;->performHapticFeedback(II)Z
 
     return v3
 
@@ -839,7 +835,6 @@
     if-eqz p0, :cond_8
 
     .line 214
-    invoke-virtual {p2, v1, v3}, Landroid/view/View;->performHapticFeedback(II)Z
 
     :cond_8
     return v3

@@ -4048,7 +4048,6 @@
 
     const/4 p1, 0x1
 
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->performHapticFeedback(I)Z
 
     return-void
 

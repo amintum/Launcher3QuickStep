@@ -189,14 +189,9 @@
 .end method
 
 .method public playToken(Lcom/google/android/msdl/data/model/MSDLToken;)V
-    .locals 1
+    .locals 0
 
-    .line 68
-    iget-object p0, p0, Lcom/android/launcher3/util/MSDLPlayerWrapper;->mMSDLPlayer:Lcom/google/android/msdl/domain/MSDLPlayer;
-
-    const/4 v0, 0x0
-
-    invoke-interface {p0, p1, v0}, Lcom/google/android/msdl/domain/MSDLPlayer;->playToken(Lcom/google/android/msdl/data/model/MSDLToken;Lcom/google/android/msdl/domain/InteractionProperties;)V
+    # ponytail: haptics disabled - all launcher vibration routed here is killed
 
     return-void
 .end method

@@ -106,7 +106,6 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p1, p2, v0}, Landroid/view/View;->performHapticFeedback(II)Z
 
     .line 57
     :cond_0

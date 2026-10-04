@@ -52,7 +52,6 @@
 
     const/16 p1, 0x10
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -73,7 +72,6 @@
 
     const/4 p1, 0x6
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -94,7 +92,6 @@
 
     const/16 p1, 0xd
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -115,7 +112,6 @@
 
     const/16 p1, 0x17
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -136,7 +132,6 @@
 
     const/4 p1, 0x3
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -157,7 +152,6 @@
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -177,7 +171,6 @@
 
     const/16 p1, 0x11
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -198,7 +191,6 @@
 
     const/16 p1, 0x1b
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -219,7 +211,6 @@
 
     const/16 p1, 0x1a
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -240,7 +231,6 @@
 
     const/16 p1, 0x9
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -261,7 +251,6 @@
 
     const/16 p1, 0x16
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -282,7 +271,6 @@
 
     const/16 p1, 0x15
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     return-void
 
@@ -303,7 +291,6 @@
 
     const/4 p1, 0x1
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->performHapticFeedback(I)Z
 
     :cond_c
     return-void

@@ -448,7 +448,6 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {v1, v6}, Landroid/widget/FrameLayout;->performHapticFeedback(I)Z
 
     .line 131
     iget-object v1, v0, Lcom/android/launcher3/dragndrop/DragController;->mLastTouch:Landroid/graphics/Point;

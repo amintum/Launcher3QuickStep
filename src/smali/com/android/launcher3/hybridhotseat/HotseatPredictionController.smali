@@ -613,7 +613,6 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->performHapticFeedback(I)Z
 
     return v2
 

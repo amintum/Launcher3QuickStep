@@ -329,93 +329,25 @@
 .end method
 
 .method public vibrate(IFLandroid/os/VibrationEffect;)V
-    .locals 2
+    .locals 0
 
-    .line 114
-    iget-boolean v0, p0, Lcom/android/launcher3/util/VibratorWrapper;->mHasVibrator:Z
+    # ponytail: haptics disabled - all launcher vibration routed here is killed
 
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/launcher3/util/VibratorWrapper;->mIsHapticFeedbackEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    .line 115
-    sget-object v0, Lcom/android/launcher3/util/Executors;->UI_HELPER_EXECUTOR:Lcom/android/launcher3/util/LooperExecutor;
-
-    new-instance v1, Lcom/android/launcher3/util/VibratorWrapper$$ExternalSyntheticLambda2;
-
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/launcher3/util/VibratorWrapper$$ExternalSyntheticLambda2;-><init>(Lcom/android/launcher3/util/VibratorWrapper;IFLandroid/os/VibrationEffect;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/util/LooperExecutor;->execute(Ljava/lang/Runnable;)V
-
-    :cond_0
     return-void
 .end method
 
 .method public vibrate(Landroid/os/VibrationEffect;)V
-    .locals 2
+    .locals 0
 
-    .line 103
-    iget-boolean v0, p0, Lcom/android/launcher3/util/VibratorWrapper;->mHasVibrator:Z
+    # ponytail: haptics disabled - all launcher vibration routed here is killed
 
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/launcher3/util/VibratorWrapper;->mIsHapticFeedbackEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    .line 104
-    sget-object v0, Lcom/android/launcher3/util/Executors;->UI_HELPER_EXECUTOR:Lcom/android/launcher3/util/LooperExecutor;
-
-    new-instance v1, Lcom/android/launcher3/util/VibratorWrapper$$ExternalSyntheticLambda1;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/util/VibratorWrapper$$ExternalSyntheticLambda1;-><init>(Lcom/android/launcher3/util/VibratorWrapper;Landroid/os/VibrationEffect;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/util/LooperExecutor;->execute(Ljava/lang/Runnable;)V
-
-    :cond_0
     return-void
 .end method
 
 .method public vibrateForTaskbarUnstash()V
-    .locals 3
+    .locals 0
 
-    .line 129
-    iget-object v0, p0, Lcom/android/launcher3/util/VibratorWrapper;->mVibrator:Landroid/os/Vibrator;
+    # ponytail: haptics disabled - all launcher vibration routed here is killed
 
-    const/16 v1, 0x8
-
-    filled-new-array {v1}, [I
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Landroid/os/Vibrator;->areAllPrimitivesSupported([I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 131
-    invoke-static {}, Landroid/os/VibrationEffect;->startComposition()Landroid/os/VibrationEffect$Composition;
-
-    move-result-object v0
-
-    const v2, 0x3f666666    # 0.9f
-
-    .line 132
-    invoke-virtual {v0, v1, v2}, Landroid/os/VibrationEffect$Composition;->addPrimitive(IF)Landroid/os/VibrationEffect$Composition;
-
-    move-result-object v0
-
-    .line 133
-    invoke-virtual {v0}, Landroid/os/VibrationEffect$Composition;->compose()Landroid/os/VibrationEffect;
-
-    move-result-object v0
-
-    .line 135
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/util/VibratorWrapper;->vibrate(Landroid/os/VibrationEffect;)V
-
-    :cond_0
     return-void
 .end method
