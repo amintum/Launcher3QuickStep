@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.quickstep.views.GroupedTaskView android:id="@id/task_view_grouped" android:focusable="true" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent" android:defaultFocusHighlightEnabled="false" launcher:focusBorderColor="@color/materialColorOutline" launcher:hoverBorderColor="@color/materialColorPrimary"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" xmlns:launcher="http://schemas.android.com/apk/res-auto">
+    <ViewStub android:id="@id/task_content_view" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/bottomright_task_content_view" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:layout_gravity="start" android:id="@id/show_windows" android:layout_width="@dimen/recents_filter_icon_size" android:layout_height="@dimen/recents_filter_icon_size" android:src="@drawable/ic_select_windows" android:tint="@color/recents_filter_icon" android:alpha="0.0" android:importantForAccessibility="no" />
+    <ImageView android:layout_gravity="end" android:id="@id/show_windows_right" android:layout_width="@dimen/recents_filter_icon_size" android:layout_height="@dimen/recents_filter_icon_size" android:src="@drawable/ic_select_windows" android:tint="@color/recents_filter_icon" android:alpha="0.0" android:importantForAccessibility="no" />
+    <ViewStub android:id="@id/icon" android:inflatedId="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ViewStub android:id="@id/bottomRight_icon" android:inflatedId="@id/bottomRight_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <include layout="@layout/task_dismiss_button" />
+    <ViewStub android:id="@id/digital_wellbeing_toast" android:inflatedId="@id/digital_wellbeing_toast" android:layout_width="match_parent" android:layout_height="@dimen/digital_wellbeing_toast_height" />
+    <ViewStub android:id="@id/bottomRight_digital_wellbeing_toast" android:inflatedId="@id/bottomRight_digital_wellbeing_toast" android:layout_width="match_parent" android:layout_height="@dimen/digital_wellbeing_toast_height" />
+</com.android.quickstep.views.GroupedTaskView>

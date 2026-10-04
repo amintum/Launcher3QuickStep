@@ -1,0 +1,14 @@
+.class public interface abstract Lcom/android/systemui/plugins/NavigationEdgeBackPlugin$BackCallback;
+.super Ljava/lang/Object;
+.source "NavigationEdgeBackPlugin.java"
+
+
+# virtual methods
+.method public abstract cancelBack()V
+.end method
+
+.method public abstract setTriggerBack(Z)V
+.end method
+
+.method public abstract triggerBack()V
+.end method

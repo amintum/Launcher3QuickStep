@@ -1,0 +1,10 @@
+build/
+.gradle/
+*.idsig
+*.log
+.DS_Store
+
+# scratch build intermediates
+scratch/*.class
+scratch/classes.dex
+scratch/helper_smali/

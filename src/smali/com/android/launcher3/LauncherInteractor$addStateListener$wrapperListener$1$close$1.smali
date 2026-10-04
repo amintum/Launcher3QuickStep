@@ -1,0 +1,50 @@
+.class public final Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1$close$1;
+.super Ljava/lang/Object;
+.source "LauncherInteractor.kt"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/launcher3/LauncherInteractor;
+
+.field public final synthetic this$1:Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/launcher3/LauncherInteractor;Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1;)V
+    .locals 0
+
+    .line 0
+    iput-object p1, p0, Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1$close$1;->this$0:Lcom/android/launcher3/LauncherInteractor;
+
+    iput-object p2, p0, Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1$close$1;->this$1:Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 1
+
+    .line 139
+    iget-object v0, p0, Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1$close$1;->this$0:Lcom/android/launcher3/LauncherInteractor;
+
+    invoke-static {v0}, Lcom/android/launcher3/LauncherInteractor;->access$getLauncher$p(Lcom/android/launcher3/LauncherInteractor;)Lcom/android/launcher3/uioverrides/QuickstepLauncher;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getStateManager()Lcom/android/launcher3/statemanager/StateManager;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1$close$1;->this$1:Lcom/android/launcher3/LauncherInteractor$addStateListener$wrapperListener$1;
+
+    invoke-virtual {v0, p0}, Lcom/android/launcher3/statemanager/StateManager;->removeStateListener(Lcom/android/launcher3/statemanager/StateManager$StateListener;)V
+
+    return-void
+.end method

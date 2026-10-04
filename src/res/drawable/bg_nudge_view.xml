@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/nudge_pill_color1" android:endColor="@android:color/transparent" android:type="radial" android:centerX="0.05" android:centerY="0.05" android:gradientRadius="@dimen/taskbar_nudge_glow_radius_percent" />
+            <corners android:radius="@dimen/rounded_button_radius" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/nudge_pill_color2" android:endColor="@android:color/transparent" android:type="radial" android:centerX="0.95" android:centerY="0.95" android:gradientRadius="@dimen/taskbar_nudge_glow_radius_percent" />
+            <corners android:radius="@dimen/rounded_button_radius" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/nudge_pill_color3" android:endColor="@android:color/transparent" android:type="radial" android:centerX="0.95" android:centerY="0.05" android:gradientRadius="@dimen/taskbar_nudge_glow_radius_percent" />
+            <corners android:radius="@dimen/rounded_button_radius" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/nudge_pill_color4" android:endColor="@android:color/transparent" android:type="radial" android:centerX="0.05" android:centerY="0.95" android:gradientRadius="@dimen/taskbar_nudge_glow_radius_percent" />
+            <corners android:radius="@dimen/rounded_button_radius" />
+        </shape>
+    </item>
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/rounded_button_radius" />
+            <stroke android:width="@dimen/work_apps_paused_button_stroke" android:color="@android:color/white" />
+        </shape>
+    </item>
+</layer-list>

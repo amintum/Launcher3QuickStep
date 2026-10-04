@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="abc_action_bar_embed_tabs">true</bool>
+    <bool name="config_enableTaskSnapshotPreloading">true</bool>
+    <bool name="config_largeHeap">false</bool>
+    <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
+    <bool name="floating_rotation_button_position_left">true</bool>
+    <bool name="home_settings_allow_divider">false</bool>
+    <bool name="home_settings_icon_space_reserved">false</bool>
+</resources>

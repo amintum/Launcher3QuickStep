@@ -1,0 +1,23 @@
+.class public abstract Landroidx/appcompat/widget/MenuPopupWindow$Api23Impl;
+.super Ljava/lang/Object;
+.source "MenuPopupWindow.java"
+
+
+# direct methods
+.method public static setEnterTransition(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
+    .locals 0
+
+    .line 251
+    invoke-virtual {p0, p1}, Landroid/widget/PopupWindow;->setEnterTransition(Landroid/transition/Transition;)V
+
+    return-void
+.end method
+
+.method public static setExitTransition(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
+    .locals 0
+
+    .line 255
+    invoke-virtual {p0, p1}, Landroid/widget/PopupWindow;->setExitTransition(Landroid/transition/Transition;)V
+
+    return-void
+.end method

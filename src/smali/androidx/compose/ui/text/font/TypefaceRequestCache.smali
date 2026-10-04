@@ -1,0 +1,262 @@
+.class public final Landroidx/compose/ui/text/font/TypefaceRequestCache;
+.super Ljava/lang/Object;
+.source "FontFamilyResolver.kt"
+
+
+# instance fields
+.field public final lock:Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+.field public final resultCache:Landroidx/collection/LruCache;
+
+
+# direct methods
+.method public static synthetic $r8$lambda$69sNSzzfrpbibxJb8_TDaVWSzv0(Landroidx/compose/ui/text/font/TypefaceRequestCache;Landroidx/compose/ui/text/font/TypefaceRequest;Landroidx/compose/ui/text/font/TypefaceResult;)Lkotlin/Unit;
+    .locals 0
+
+    .line 0
+    invoke-static {p0, p1, p2}, Landroidx/compose/ui/text/font/TypefaceRequestCache;->runCached$lambda$3(Landroidx/compose/ui/text/font/TypefaceRequestCache;Landroidx/compose/ui/text/font/TypefaceRequest;Landroidx/compose/ui/text/font/TypefaceResult;)Lkotlin/Unit;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 0
+
+    .line 0
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 2
+
+    .line 167
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 28
+    new-instance v0, Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+    invoke-direct {v0}, Landroidx/compose/ui/text/platform/SynchronizedObject;-><init>()V
+
+    .line 168
+    iput-object v0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->lock:Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+    .line 170
+    new-instance v0, Landroidx/collection/LruCache;
+
+    const/16 v1, 0x10
+
+    invoke-direct {v0, v1}, Landroidx/collection/LruCache;-><init>(I)V
+
+    iput-object v0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    return-void
+.end method
+
+.method public static final runCached$lambda$3(Landroidx/compose/ui/text/font/TypefaceRequestCache;Landroidx/compose/ui/text/font/TypefaceRequest;Landroidx/compose/ui/text/font/TypefaceResult;)Lkotlin/Unit;
+    .locals 2
+
+    .line 205
+    iget-object v0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->lock:Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+    .line 35
+    monitor-enter v0
+
+    .line 206
+    :try_start_0
+    invoke-interface {p2}, Landroidx/compose/ui/text/font/TypefaceResult;->getCacheable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 207
+    iget-object p0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {p0, p1, p2}, Landroidx/collection/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/ui/text/font/TypefaceResult;
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    .line 209
+    :cond_0
+    iget-object p0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {p0, p1}, Landroidx/collection/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/ui/text/font/TypefaceResult;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 35
+    :goto_0
+    monitor-exit v0
+
+    .line 212
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
+
+    .line 35
+    :goto_1
+    monitor-exit v0
+
+    throw p0
+.end method
+
+
+# virtual methods
+.method public final runCached(Landroidx/compose/ui/text/font/TypefaceRequest;Lkotlin/jvm/functions/Function1;)Landroidx/compose/runtime/State;
+    .locals 3
+
+    .line 176
+    iget-object v0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->lock:Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+    .line 35
+    monitor-enter v0
+
+    .line 177
+    :try_start_0
+    iget-object v1, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {v1, p1}, Landroidx/collection/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/compose/ui/text/font/TypefaceResult;
+
+    if-eqz v1, :cond_1
+
+    .line 178
+    invoke-interface {v1}, Landroidx/compose/ui/text/font/TypefaceResult;->getCacheable()Z
+
+    move-result v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v2, :cond_0
+
+    .line 179
+    monitor-exit v0
+
+    return-object v1
+
+    .line 181
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {v1, p1}, Landroidx/collection/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/compose/ui/text/font/TypefaceResult;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_3
+
+    .line 35
+    :cond_1
+    :goto_0
+    monitor-exit v0
+
+    .line 197
+    :try_start_2
+    new-instance v0, Landroidx/compose/ui/text/font/TypefaceRequestCache$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0, p1}, Landroidx/compose/ui/text/font/TypefaceRequestCache$$ExternalSyntheticLambda0;-><init>(Landroidx/compose/ui/text/font/TypefaceRequestCache;Landroidx/compose/ui/text/font/TypefaceRequest;)V
+
+    invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroidx/compose/ui/text/font/TypefaceResult;
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    .line 216
+    iget-object v0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->lock:Landroidx/compose/ui/text/platform/SynchronizedObject;
+
+    .line 35
+    monitor-enter v0
+
+    .line 219
+    :try_start_3
+    iget-object v1, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {v1, p1}, Landroidx/collection/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
+
+    invoke-interface {p2}, Landroidx/compose/ui/text/font/TypefaceResult;->getCacheable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 220
+    iget-object p0, p0, Landroidx/compose/ui/text/font/TypefaceRequestCache;->resultCache:Landroidx/collection/LruCache;
+
+    invoke-virtual {p0, p1, p2}, Landroidx/collection/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception p0
+
+    goto :goto_2
+
+    .line 222
+    :cond_2
+    :goto_1
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    .line 35
+    monitor-exit v0
+
+    return-object p2
+
+    :goto_2
+    monitor-exit v0
+
+    throw p0
+
+    :catch_0
+    move-exception p0
+
+    .line 214
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    const-string p2, "Could not load font"
+
+    invoke-direct {p1, p2, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw p1
+
+    .line 35
+    :goto_3
+    monitor-exit v0
+
+    throw p0
+.end method

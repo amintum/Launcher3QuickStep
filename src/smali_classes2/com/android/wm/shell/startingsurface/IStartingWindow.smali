@@ -1,0 +1,16 @@
+.class public interface abstract Lcom/android/wm/shell/startingsurface/IStartingWindow;
+.super Ljava/lang/Object;
+.source "IStartingWindow.java"
+
+# interfaces
+.implements Landroid/os/IInterface;
+
+
+# virtual methods
+.method public abstract setStartingWindowListener(Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method

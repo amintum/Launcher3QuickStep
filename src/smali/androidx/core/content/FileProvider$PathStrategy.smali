@@ -1,0 +1,8 @@
+.class public interface abstract Landroidx/core/content/FileProvider$PathStrategy;
+.super Ljava/lang/Object;
+.source "FileProvider.java"
+
+
+# virtual methods
+.method public abstract getFileForUri(Landroid/net/Uri;)Ljava/io/File;
+.end method

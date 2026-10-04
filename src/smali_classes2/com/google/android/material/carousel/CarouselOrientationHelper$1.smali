@@ -1,0 +1,168 @@
+.class public Lcom/google/android/material/carousel/CarouselOrientationHelper$1;
+.super Lcom/google/android/material/carousel/CarouselOrientationHelper;
+.source "CarouselOrientationHelper.java"
+
+
+# instance fields
+.field public final synthetic val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+
+# direct methods
+.method public constructor <init>(ILcom/google/android/material/carousel/CarouselLayoutManager;)V
+    .locals 0
+
+    .line 163
+    iput-object p2, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    const/4 p2, 0x0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselOrientationHelper;-><init>(ILcom/google/android/material/carousel/CarouselOrientationHelper$1;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getDecoratedCrossAxisMeasurement(Landroid/view/View;)I
+    .locals 1
+
+    .line 198
+    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
+
+    .line 199
+    iget-object p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getDecoratedMeasuredWidth(Landroid/view/View;)I
+
+    move-result p0
+
+    iget p1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    add-int/2addr p0, p1
+
+    iget p1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public getParentBottom()I
+    .locals 0
+
+    .line 192
+    iget-object p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getHeight()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getParentLeft()I
+    .locals 0
+
+    .line 166
+    iget-object p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingLeft()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getParentRight()I
+    .locals 1
+
+    .line 177
+    iget-object v0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidth()I
+
+    move-result v0
+
+    iget-object p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingRight()I
+
+    move-result p0
+
+    sub-int/2addr v0, p0
+
+    return v0
+.end method
+
+.method public getParentStart()I
+    .locals 0
+
+    .line 171
+    invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->getParentTop()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getParentTop()I
+    .locals 0
+
+    .line 0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public layoutDecoratedWithMargins(Landroid/view/View;II)V
+    .locals 6
+
+    .line 205
+    invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->getParentLeft()I
+
+    move-result v2
+
+    .line 206
+    invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->getDecoratedCrossAxisMeasurement(Landroid/view/View;)I
+
+    move-result v0
+
+    add-int v4, v2, v0
+
+    .line 207
+    iget-object v0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper$1;->val$carouselLayoutManager:Lcom/google/android/material/carousel/CarouselLayoutManager;
+
+    move-object v1, p1
+
+    move v3, p2
+
+    move v5, p3
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->layoutDecoratedWithMargins(Landroid/view/View;IIII)V
+
+    return-void
+.end method
+
+.method public offsetChild(Landroid/view/View;Landroid/graphics/Rect;FF)V
+    .locals 0
+
+    .line 260
+    iget p0, p2, Landroid/graphics/Rect;->top:I
+
+    int-to-float p0, p0
+
+    add-float/2addr p0, p3
+
+    sub-float/2addr p4, p0
+
+    float-to-int p0, p4
+
+    .line 261
+    invoke-virtual {p1, p0}, Landroid/view/View;->offsetTopAndBottom(I)V
+
+    return-void
+.end method
