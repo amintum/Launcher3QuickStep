@@ -641,7 +641,6 @@
     invoke-virtual {v11, v12, v10}, Landroid/content/pm/LauncherApps;->getActivityList(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
 
     move-result-object v11
-
     if-eqz v11, :cond_6
 
     .line 622

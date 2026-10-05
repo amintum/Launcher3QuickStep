@@ -285,12 +285,9 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/views/SpringRelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 132
-    invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
+    # ponytail: personal tab also shows clone-profile apps
 
-    move-result-object p2
-
-    .line 131
-    invoke-static {p2}, Lcom/android/launcher3/util/ItemInfoMatcher;->ofUser(Landroid/os/UserHandle;)Ljava/util/function/Predicate;
+    invoke-static {p1}, Lcom/android/launcher3/CloneAppSupport;->personalWithClones(Landroid/content/Context;)Ljava/util/function/Predicate;
 
     move-result-object p2
 
