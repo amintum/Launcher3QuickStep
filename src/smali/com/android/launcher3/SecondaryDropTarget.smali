@@ -136,13 +136,24 @@
 .end method
 
 .method public static performUninstall(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/launcher3/model/data/ItemInfo;)Landroid/content/ComponentName;
-    .locals 6
+    .locals 7
 
     .line 293
     const-string v0, "SecondaryDropTarget"
 
     const/4 v1, 0x0
 
+    # ponytail: system apps and clone users are refused by the installer - confirm + root uninstall instead
+
+    invoke-static {p0, p2}, Lcom/android/launcher3/RootUninstall;->handleIfSpecial(Landroid/content/Context;Lcom/android/launcher3/model/data/ItemInfo;)Z
+
+    move-result v6
+
+    if-eqz v6, :ru_ok
+
+    return-object v1
+
+    :ru_ok
     const/4 v2, 0x0
 
     if-nez p1, :cond_0
