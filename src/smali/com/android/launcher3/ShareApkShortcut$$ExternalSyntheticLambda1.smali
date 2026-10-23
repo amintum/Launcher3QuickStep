@@ -1,4 +1,4 @@
-.class public final synthetic Lcom/android/launcher3/CloneAppShortcut$$ExternalSyntheticLambda0;
+.class public final synthetic Lcom/android/launcher3/ShareApkShortcut$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
 .source "D8$$SyntheticClass"
 
@@ -22,7 +22,7 @@
     .registers 4
 
     .line 0
-    invoke-static {p1, p2, p3}, Lcom/android/launcher3/CloneAppShortcut;->lambda$static$0(Lcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)Lcom/android/launcher3/popup/SystemShortcut;
+    invoke-static {p1, p2, p3}, Lcom/android/launcher3/ShareApkShortcut;->lambda$static$0(Lcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)Lcom/android/launcher3/popup/SystemShortcut;
 
     move-result-object p0
 

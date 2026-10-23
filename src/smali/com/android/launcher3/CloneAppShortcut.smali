@@ -24,7 +24,7 @@
 .method public constructor <init>(Lcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)V
     .registers 13
 
-    .line 21
+    .line 29
     move-object v0, p1
 
     check-cast v0, Landroid/content/Context;
@@ -41,7 +41,7 @@
 
     const-string v2, "string"
 
-    .line 22
+    .line 30
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/CloneAppShortcut;->res(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
@@ -54,21 +54,21 @@
 
     move-object v8, p3
 
-    .line 21
+    .line 29
     invoke-direct/range {v3 .. v8}, Lcom/android/launcher3/popup/SystemShortcut;-><init>(IILcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)V
 
     return-void
 .end method
 
 .method static synthetic lambda$static$0(Lcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)Lcom/android/launcher3/popup/SystemShortcut;
-    .registers 5
+    .registers 7
 
     .line 14
     iget-object v0, p1, Lcom/android/launcher3/model/data/ItemInfo;->user:Landroid/os/UserHandle;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_32
 
     iget-object v0, p1, Lcom/android/launcher3/model/data/ItemInfo;->user:Landroid/os/UserHandle;
 
@@ -78,7 +78,7 @@
 
     if-eqz v0, :cond_e
 
-    goto :goto_1b
+    goto :goto_32
 
     .line 15
     :cond_e
@@ -90,23 +90,57 @@
 
     return-object v1
 
-    .line 17
+    .line 19
     :cond_15
+    :try_start_15
+    move-object v2, p0
+
+    check-cast v2, Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    .line 20
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v0, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    .line 21
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+    :try_end_27
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_15 .. :try_end_27} :catch_32
+
+    and-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_2c
+
+    return-object v1
+
+    .line 25
+    :cond_2c
     new-instance v0, Lcom/android/launcher3/CloneAppShortcut;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/launcher3/CloneAppShortcut;-><init>(Lcom/android/launcher3/views/ActivityContext;Lcom/android/launcher3/model/data/ItemInfo;Landroid/view/View;)V
 
     return-object v0
 
-    :cond_1b
-    :goto_1b
+    :catch_32
+    :cond_32
+    :goto_32
     return-object v1
 .end method
 
 .method private static res(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
     .registers 4
 
-    .line 27
+    .line 35
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -127,10 +161,10 @@
 .method public onClick(Landroid/view/View;)V
     .registers 2
 
-    .line 32
+    .line 40
     invoke-virtual {p0}, Lcom/android/launcher3/CloneAppShortcut;->dismissTaskMenuView()V
 
-    .line 33
+    .line 41
     iget-object p1, p0, Lcom/android/launcher3/CloneAppShortcut;->mTarget:Lcom/android/launcher3/views/ActivityContext;
 
     check-cast p1, Landroid/content/Context;

@@ -1782,6 +1782,10 @@
 
     invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    sget-object p0, Lcom/android/launcher3/ShareApkShortcut;->FACTORY:Lcom/android/launcher3/popup/SystemShortcut$Factory;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     .line 577
     invoke-static {}, Lcom/android/wm/shell/shared/bubbles/BubbleAnythingFlagHelper;->enableCreateAnyBubble()Z
 

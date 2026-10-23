@@ -7,4 +7,13 @@ build/
 # scratch build intermediates
 scratch/*.class
 scratch/classes.dex
+scratch/cas_smali/
+scratch/dbg_smali/
+scratch/dexout2/
+scratch/dex_all/
 scratch/helper_smali/
+scratch/out/
+scratch/ru_dex/
+scratch/ru_smali/
+scratch/share_smali/
+scratch/stub/

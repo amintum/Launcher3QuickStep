@@ -20,35 +20,33 @@
 .method public static handleIfSpecial(Landroid/content/Context;Lcom/android/launcher3/model/data/ItemInfo;)Z
     .registers 7
 
-    const-string v0, " (user "
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_7c
+    if-eqz p1, :cond_7d
 
     .line 22
-    :try_start_5
-    iget-object v2, p1, Lcom/android/launcher3/model/data/ItemInfo;->user:Landroid/os/UserHandle;
+    :try_start_3
+    iget-object v1, p1, Lcom/android/launcher3/model/data/ItemInfo;->user:Landroid/os/UserHandle;
 
-    if-nez v2, :cond_a
+    if-nez v1, :cond_8
 
-    goto :goto_7c
+    goto :goto_7d
 
     .line 23
-    :cond_a
+    :cond_8
     invoke-virtual {p1}, Lcom/android/launcher3/model/data/ItemInfo;->getTargetComponent()Landroid/content/ComponentName;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_11
+    if-nez v1, :cond_f
 
-    return v1
+    return v0
 
     .line 25
-    :cond_11
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    :cond_f
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 26
     iget-object p1, p1, Lcom/android/launcher3/model/data/ItemInfo;->user:Landroid/os/UserHandle;
@@ -58,120 +56,124 @@
     move-result p1
 
     .line 27
-    invoke-static {p0, v2}, Lcom/android/launcher3/RootUninstall;->isSystem(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {p0, v1}, Lcom/android/launcher3/RootUninstall;->isSystem(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez p1, :cond_24
+    if-nez p1, :cond_22
 
-    if-nez v3, :cond_24
+    if-nez v2, :cond_22
 
-    return v1
+    return v0
 
     .line 30
-    :cond_24
-    new-instance v3, Landroid/app/AlertDialog$Builder;
+    :cond_22
+    new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v3, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const-string v4, "Uninstall app?"
+    const-string v3, "Uninstall app?"
 
     .line 31
-    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    if-eqz p1, :cond_49
+
+    .line 33
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " (user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, ") - removed for this user only."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz p1, :cond_43
+    goto :goto_5a
+
+    .line 34
+    :cond_49
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " - this is a system app, it will need root access to uninstall it. Removed for this user only."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     .line 32
-    new-instance v4, Ljava/lang/StringBuilder;
+    :goto_5a
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, ")"
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_45
-
-    :cond_43
-    const-string v0, " (system app)"
-
-    :goto_45
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "\n\nRemoved for this user only."
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
+    move-result-object v2
 
     const-string v3, "Uninstall"
 
     new-instance v4, Lcom/android/launcher3/RootUninstall$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, p1, v2, p0}, Lcom/android/launcher3/RootUninstall$$ExternalSyntheticLambda0;-><init>(ILjava/lang/String;Landroid/content/Context;)V
+    invoke-direct {v4, p1, v1, p0}, Lcom/android/launcher3/RootUninstall$$ExternalSyntheticLambda0;-><init>(ILjava/lang/String;Landroid/content/Context;)V
 
-    .line 34
-    invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    .line 35
+    invoke-virtual {v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
     const/high16 p1, 0x1040000
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    .line 49
-    invoke-virtual {p0, p1, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    .line 50
+    invoke-virtual {p0, p1, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    .line 50
+    .line 51
     invoke-virtual {p0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
-    :try_end_72
-    .catchall {:try_start_5 .. :try_end_72} :catchall_74
+    :try_end_73
+    .catchall {:try_start_3 .. :try_end_73} :catchall_75
 
     const/4 p0, 0x1
 
     return p0
 
-    :catchall_74
+    :catchall_75
     move-exception p0
 
-    .line 53
+    .line 54
     const-string p1, "CloneApp"
 
-    const-string v0, "handleIfSpecial"
+    const-string v1, "handleIfSpecial"
 
-    invoke-static {p1, v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_7c
-    :goto_7c
-    return v1
+    :cond_7d
+    :goto_7d
+    return v0
 .end method
 
 .method private static isSystem(Landroid/content/Context;Ljava/lang/String;)Z
     .registers 9
 
-    .line 59
+    .line 60
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object p0
@@ -180,7 +182,7 @@
 
     const/4 v1, 0x0
 
-    .line 61
+    .line 62
     :try_start_6
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -198,12 +200,12 @@
 
     move-result-object v4
 
-    .line 62
+    .line 63
     invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v2
 
-    .line 63
+    .line 64
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -222,7 +224,7 @@
 
     check-cast v2, Landroid/content/pm/ApplicationInfo;
 
-    .line 64
+    .line 65
     iget p0, v2, Landroid/content/pm/ApplicationInfo;->flags:I
     :try_end_2e
     .catchall {:try_start_6 .. :try_end_2e} :catchall_33
@@ -236,7 +238,7 @@
     :cond_32
     return v1
 
-    .line 67
+    .line 68
     :catchall_33
     :try_start_33
     invoke-virtual {p0, p1, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
@@ -276,7 +278,7 @@
 
     const/4 v1, 0x1
 
-    .line 36
+    .line 37
     :try_start_7
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -310,12 +312,12 @@
 
     move-result-object p0
 
-    .line 38
+    .line 39
     invoke-virtual {p0}, Ljava/lang/Process;->waitFor()I
 
     move-result p0
 
-    .line 39
+    .line 40
     const-string p1, "CloneApp"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -332,7 +334,7 @@
 
     if-nez p0, :cond_45
 
-    .line 41
+    .line 42
     const-string p0, "Uninstalled"
 
     goto :goto_56
@@ -352,13 +354,13 @@
 
     move-result-object p0
 
-    .line 40
+    .line 41
     :goto_56
     invoke-static {p2, p0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
 
-    .line 42
+    .line 43
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
     :try_end_5d
     .catchall {:try_start_7 .. :try_end_5d} :catchall_5e
@@ -368,7 +370,7 @@
     :catchall_5e
     move-exception p0
 
-    .line 45
+    .line 46
     invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object p0
@@ -385,12 +387,12 @@
 
     move-result-object p0
 
-    .line 44
+    .line 45
     invoke-static {p2, p0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
 
-    .line 46
+    .line 47
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
     return-void

@@ -3,55 +3,84 @@
 [![Android 10+](https://img.shields.io/badge/Android-10%2B%20%7C%2014%20%7C%2015%20%7C%2016-00E5FF?style=for-the-badge&logo=android)](https://github.com/amintum)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0%20%2B%20Attribution-blue?style=for-the-badge)](LICENSE)
 
-A clean, modern, and customized **AOSP Launcher3 with QuickStep gesture navigation** built for speed, transparency, and seamless user customization.
+A clean, high-performance, and deeply optimized **AOSP Launcher3 with QuickStep gesture navigation** engineered for speed, transparency, and advanced customization on custom ROMs and GSIs.
 
 ---
 
 ## ⚡ Features & Enhancements
-* 🌌 **Translucent Glass App Drawer & Recents**: Sleek smoked glass backdrop for the all-apps drawer and recent apps task overview.
-* 🎭 **Dynamic Workspace & Dock Alpha Fading**: Pulling up the app drawer smoothly fades out homescreen shortcuts, widgets, and the bottom dock (`1.0 → 0.0`), revealing a clean, distraction-free wallpaper view with zero overlapping text or icons.
-* 🧹 **Clean, Unobstructed UI**: Eliminated the bottom drag handle / pill bar from the home screen for a true edge-to-edge viewing experience.
-* 🧩 **Optional Cyber Clock HUD Widget Support**:
-  * Clean default workspace out of the box with zero forced widgets.
-  * Fully compatible with the standalone [CyberClockHudWidget](https://github.com/amintum/CyberClockHudWidget) — users can add, resize, and position the HUD clock widget directly from the standard home screen **Widgets** picker anytime!
-* 🏃 **Fluid QuickStep Gestures**: High-performance gesture navigation with smooth app-switching transitions.
-* 📱 **Universal Android Compatibility**: Built for modern Android (Android 14, 15, and 16).
+
+* 👥 **App Cloning (Dual Apps)**:
+  * Long-press any user application to access the **Clone app** shortcut.
+  * Provisions a second isolated instance under profile `userId 999` for running dual concurrent accounts (messaging, social media, work profiles).
+  * System applications are safely excluded from cloning.
+
+* 📤 **Direct APK Sharing**:
+  * Long-press any application and select **Share APK** to export and share the raw `.apk` file directly via Android's native share sheet.
+  * Integrated securely via AndroidX `FileProvider` (`com.android.launcher3.files`).
+
+* 🎨 **Solid vs. Translucent Drawer Toggle**:
+  * Built-in preference toggle in Launcher Settings (`pref_solid_app_drawer`).
+  * Easily switch between a translucent glass drawer and a clean, solid opaque drawer background.
+
+* ⚡ **Snappy Animations & Performance Tuning**:
+  * App drawer open/close transitions accelerated from 600ms/300ms down to **150ms / 120ms**.
+  * Optimized swipe threshold (0.65x drag range) for quick, responsive drawer deployment.
+  * Disabled live blur overhead for consistent 60/120 FPS performance on all hardware tiers.
+  * Zero haptic feedback delays for instantaneous touch response.
+
+* 🎭 **Dynamic Workspace & Dock Alpha Fading**:
+  * Pulling up the app drawer smoothly fades out homescreen icons, widgets, and the bottom dock (`1.0 → 0.0`) in real time, revealing a clean, distraction-free wallpaper backdrop.
+
+* 🧹 **Clean Edge-to-Edge UI**:
+  * Removed the bottom drag handle / navigation pill bar from the home screen for a modern, bezel-less view.
+
+* 🌙 **Double Tap to Sleep**:
+  * Double-tap on any empty space on the home screen to instantly turn off / lock the screen.
+
+* 📱 **Universal Android Compatibility**:
+  * Fully adapted and tested for modern Android versions (Android 14, 15, and 16).
 
 ---
 
 ## 📥 Installation & ROM Integration
 
-### 🔹 Option 1: Standalone Sideload / Overlay / Replacement
+### 🔹 Option 1: Standalone Sideload / Update
 If your ROM supports user-installed or Magisk-replaced QuickStep launchers:
-`ash
+```bash
 adb install -r releases/Launcher3QuickStep.apk
-`
+```
 
 ---
 
 ### 🔹 Option 2: Full ROM / GSI Integration (For ROM Builders)
-To bake Launcher3QuickStep into your Android ROM or GSI system image:
+To integrate `Launcher3QuickStep` directly into your Android ROM or GSI system image:
 
 1. **Place APK into Privileged Partition**:
-   `	ext
+   ```text
    /system/system_ext/priv-app/Launcher3QuickStep/Launcher3QuickStep.apk
    # OR
    /system/priv-app/Launcher3QuickStep/Launcher3QuickStep.apk
-   `
+   ```
+
 2. **Place Permissions Whitelist**:
-   Copy permissions/com.android.launcher3.xml to:
-   `	ext
+   Copy `permissions/com.android.launcher3.xml` to:
+   ```text
    /system/system_ext/etc/permissions/com.android.launcher3.xml
-   `
+   ```
 
 ---
 
 ## 🛠️ Building from Source
-This repository contains complete decompiled source files (resources, smali, assets). Build and sign using the included script:
-`ash
+This repository contains complete decompiled resources, smali bytecode, and assets. Build and sign using the included build toolchain:
+
+```bash
+# Compile, zipalign, and sign
 python build_apk.py
+
 # OR double-click build.bat on Windows
-`
+```
+
+The signed, zipalign-optimized APK will be output to `releases/Launcher3QuickStep.apk`.
 
 ---
 

@@ -40,7 +40,7 @@
 
     move-result v2
     :try_end_14
-    .catchall {:try_start_0 .. :try_end_14} :catchall_bc
+    .catchall {:try_start_0 .. :try_end_14} :catchall_b9
 
     const-string v3, "android.os.usertype.profile.CLONE"
 
@@ -143,7 +143,7 @@
 
     move-result-object v0
     :try_end_69
-    .catchall {:try_start_18 .. :try_end_69} :catchall_bc
+    .catchall {:try_start_18 .. :try_end_69} :catchall_b9
 
     .line 68
     :try_start_69
@@ -211,14 +211,9 @@
     move-result v0
 
     :cond_9d
-    if-nez v0, :cond_a2
+    if-eqz v0, :cond_d6
 
     .line 77
-    const-string p1, "App cloned \u00e2\u20ac\u201d check the drawer"
-
-    goto :goto_b8
-
-    :cond_a2
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -237,14 +232,13 @@
 
     move-result-object p1
 
-    :goto_b8
     invoke-static {p0, p1}, Lcom/android/launcher3/CloneUserProfile;->toast(Landroid/content/Context;Ljava/lang/String;)V
-    :try_end_bb
-    .catchall {:try_start_91 .. :try_end_bb} :catchall_bc
+    :try_end_b8
+    .catchall {:try_start_91 .. :try_end_b8} :catchall_b9
 
-    goto :goto_d9
+    goto :goto_d6
 
-    :catchall_bc
+    :catchall_b9
     move-exception p1
 
     .line 79
@@ -273,7 +267,8 @@
 
     invoke-static {p0, p1}, Lcom/android/launcher3/CloneUserProfile;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    :goto_d9
+    :cond_d6
+    :goto_d6
     return-void
 .end method
 

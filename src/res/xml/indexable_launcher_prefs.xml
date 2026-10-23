@@ -4,4 +4,5 @@
     <SwitchPreference android:title="@string/auto_add_shortcuts_label" android:key="pref_add_icon_to_home" android:summary="@string/auto_add_shortcuts_description" android:defaultValue="true" />
     <SwitchPreference android:persistent="true" android:title="@string/allow_rotation_title" android:key="pref_allowRotation" android:summary="@string/allow_rotation_desc" android:defaultValue="false" />
     <SwitchPreference android:persistent="true" android:title="@string/landscape_mode_title" android:key="pref_fixed_landscape_mode" android:summary="@string/landscape_mode_desc" android:defaultValue="false" />
+    <SwitchPreference android:persistent="true" android:title="@string/solid_app_drawer_title" android:key="pref_solid_app_drawer" android:summary="@string/solid_app_drawer_desc" android:defaultValue="false" />
 </PreferenceScreen>

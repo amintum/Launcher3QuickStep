@@ -411,6 +411,9 @@
     <string name="uninstall_drop_target_label">Uninstall</string>
     <string name="uninstall_private_system_shortcut_label">Uninstall</string>
     <string name="clone_app_label">Clone app</string>
+    <string name="share_apk_label">Share APK</string>
+    <string name="solid_app_drawer_title">Solid app drawer background</string>
+    <string name="solid_app_drawer_desc">Use an opaque solid background for the app drawer instead of translucent glass</string>
     <string name="uninstall_system_app_text">"This is a system app and can't be uninstalled."</string>
     <string name="unnamed_folder">Unnamed folder</string>
     <string name="unpin_from_taskbar">Unpin from Taskbar</string>

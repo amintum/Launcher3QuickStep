@@ -1652,9 +1652,56 @@
 .end method
 
 .method public getBottomSheetBackgroundColor()I
-    .locals 1
+    .locals 4
 
-    const/high16 p0, 0x3f000000    # 0.5f
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "com.android.launcher3.prefs"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string v3, "pref_solid_app_drawer"
+
+    invoke-interface {v1, v3, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-nez v1, :cond_solid
+
+    const/high16 p0, 0x3f000000
+
+    return p0
+
+    :cond_solid
+    invoke-static {v0}, Lcom/android/launcher3/Utilities;->isDarkTheme(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_light
+
+    const v1, 0x106004e
+
+    goto :goto_color
+
+    :cond_light
+    const v1, 0x1060048
+
+    :goto_color
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result p0
+
+    const/16 v0, 0xff
+
+    invoke-static {p0, v0}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result p0
 
     return p0
 .end method

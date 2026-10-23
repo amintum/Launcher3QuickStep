@@ -14,6 +14,14 @@ public class CloneAppShortcut extends SystemShortcut {
         if (info.user == null || info.user.hashCode() != 0) return null; // only offer on main-profile items
         ComponentName cn = info.getTargetComponent();
         if (cn == null) return null;
+        // no Clone app on system apps
+        try {
+            android.content.pm.ApplicationInfo ai = ((Context) target).getPackageManager()
+                    .getApplicationInfo(cn.getPackageName(), 0);
+            if ((ai.flags & 1) != 0) return null;
+        } catch (android.content.pm.PackageManager.NameNotFoundException ignored) {
+            return null;
+        }
         return new CloneAppShortcut(target, itemInfo, originalView);
     };
 

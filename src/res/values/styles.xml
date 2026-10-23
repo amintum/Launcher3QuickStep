@@ -10,7 +10,7 @@
     <style name="AlertDialog.AppCompat.Light" parent="@style/Base.AlertDialog.AppCompat.Light" />
     <style name="AllAppsBlurFallbackStyle" parent="@style/AllAppsBlurStyle" />
     <style name="AllAppsBlurStyle">
-        <item name="allAppsScrimColor">@android:color/shade_panel_scrim_color</item>
+        <item name="allAppsScrimColor">@android:color/system_accent2_300_dark</item>
         <item name="allAppsSurfaceHighest">@android:color/surface_effect_2</item>
         <item name="allAppsSurfaceLow">@android:color/surface_effect_0</item>
         <item name="allAppsUnselectedTab">@android:color/surface_effect_2</item>

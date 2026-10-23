@@ -302,49 +302,57 @@
 .end method
 
 .method public getWorkspaceScrimColor(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/views/ScrimColors;
-    .locals 1
+    .locals 3
 
-    .line 206
-    invoke-virtual {p1}, Lcom/android/launcher3/BaseActivity;->getDeviceProfile()Lcom/android/launcher3/DeviceProfile;
+    const-string v0, "com.android.launcher3.prefs"
 
-    move-result-object p0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/DeviceProfile;->shouldShowAllAppsOnSheet()Z
+    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result p0
+    move-result-object v0
 
-    if-nez p0, :cond_0
+    const-string v2, "pref_solid_app_drawer"
 
-    .line 208
-    invoke-virtual {p1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object p0
+    move-result v0
 
-    sget p1, Lcom/android/launcher3/R$color;->materialColorSurfaceDim:I
+    if-nez v0, :cond_solid
 
-    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result p0
+    const/high16 p0, 0x3f000000
 
     goto :goto_0
 
-    .line 213
-    :cond_0
-    sget p0, Lcom/android/launcher3/R$attr;->allAppsScrimColor:I
+    :cond_solid
+    invoke-static {p1}, Lcom/android/launcher3/Utilities;->isDarkTheme(Landroid/content/Context;)Z
 
-    invoke-static {p1, p0}, Lcom/android/launcher3/util/Themes;->getAttrColor(Landroid/content/Context;I)I
+    move-result v0
+
+    if-eqz v0, :cond_light
+
+    const v0, 0x106004e
+
+    goto :goto_color
+
+    :cond_light
+    const v0, 0x1060048
+
+    :goto_color
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
-    .line 215
-    :goto_0
-    const/high16 p0, 0x3f000000    # 0.5f
+    const/16 v0, 0xff
 
+    invoke-static {p0, v0}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result p0
+
+    :goto_0
     new-instance p1, Lcom/android/launcher3/views/ScrimColors;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p1, p0, v0}, Lcom/android/launcher3/views/ScrimColors;-><init>(II)V
+    invoke-direct {p1, p0, v1}, Lcom/android/launcher3/views/ScrimColors;-><init>(II)V
 
     return-object p1
 .end method

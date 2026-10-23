@@ -74,7 +74,7 @@ class CloneUserProfile {
             if (res != 0) {
                 res = suInstall(cn.getPackageName(), clone.hashCode());
             }
-            toast(context, res == 0 ? "App cloned — check the drawer" : "Clone failed (" + res + ")");
+            if (res != 0) toast(context, "Clone failed (" + res + ")");
         } catch (Throwable t) {
             Log.w("CloneApp", "cloneApp", t);
             toast(context, "Clone failed: " + t.getMessage());

@@ -29,8 +29,9 @@ public class RootUninstall {
 
             new AlertDialog.Builder(context)
                     .setTitle("Uninstall app?")
-                    .setMessage(pkg + (userId != 0 ? " (user " + userId + ")" : " (system app)")
-                            + "\n\nRemoved for this user only.")
+                    .setMessage(userId != 0
+                            ? pkg + " (user " + userId + ") - removed for this user only."
+                            : pkg + " - this is a system app, it will need root access to uninstall it. Removed for this user only.")
                     .setPositiveButton("Uninstall", (d, w) -> {
                         try {
                             java.lang.Process p = Runtime.getRuntime().exec(new String[]{"su", "-c",
