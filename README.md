@@ -1,6 +1,6 @@
 # 🚀 Launcher3QuickStep (BestGSI Edition)
 
-[![Android 10+](https://img.shields.io/badge/Android-10%2B%20%7C%2014%20%7C%2015%20%7C%2016-00E5FF?style=for-the-badge&logo=android)](https://github.com/amintum)
+![Android Version](https://img.shields.io/badge/Android-16-3DDC84?style=for-the-badge&logo=android) ![Android Version](https://img.shields.io/badge/Android-17-3DDC84?style=for-the-badge&logo=android)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0%20%2B%20Attribution-blue?style=for-the-badge)](LICENSE)
 
 A clean, high-performance, and deeply optimized **AOSP Launcher3 with QuickStep gesture navigation** engineered for speed, transparency, and advanced customization on custom ROMs and GSIs.
